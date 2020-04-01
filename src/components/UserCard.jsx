@@ -5,7 +5,7 @@ const UserCard = props => {
 
     return(
         <div>
-            <img src={users.avatar_url} alt="User Pic"></img>
+            <img src={users.avatar_url} alt="User Pic" />
         </div>
     );
 };

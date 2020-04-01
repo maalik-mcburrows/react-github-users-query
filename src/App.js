@@ -17,7 +17,7 @@ class App extends Component{
       userName: "",
       users: [...this.state.users, data]
     });
-    return data.avatar_url
+    return data
   };
 
   handleChange = event => {
