@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import UserCardList from './components/UserCardList';
 import './App.css';
 
 class App extends Component{
@@ -10,12 +11,13 @@ class App extends Component{
   handleSubmit = async(event) => {
     event.preventDefault();
     const username = this.state.userName;
-    const data = await fetch(`https://api.github.com/users/${username}`)
-    const response = data.json();
+    const response = await fetch(`https://api.github.com/users/${username}`)
+    const data = await response.json();
     this.setState({
       userName: "",
-      users: [...this.state.users, response]
+      users: [...this.state.users, data]
     });
+    return data.avatar_url
   };
 
   handleChange = event => {
@@ -27,6 +29,7 @@ class App extends Component{
 
 
   render(){
+    const { users } = this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -38,6 +41,7 @@ class App extends Component{
           </label>
           <button type="submit">Submit</button>
         </form>
+        <UserCardList users={users} />
       </div>
     );
   }
