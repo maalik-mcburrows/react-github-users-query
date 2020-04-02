@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import UserCardList from './components/UserCardList';
+import UserCardList from './components/UserCardList'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 
 class App extends Component{
@@ -41,7 +42,9 @@ class App extends Component{
           </label>
           <button type="submit">Submit</button>
         </form>
-        <UserCardList users={users} />
+        <Router>
+          <Route path="/" exact render={(props) => <UserCardList{...props} users={ users }/>} />
+        </Router>
       </div>
     );
   }
