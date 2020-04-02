@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import UserCardList from './components/UserCardList'
+import SingleUser from './components/SingleUser';
+import RepoData from './components/repoData';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 
@@ -44,6 +46,8 @@ class App extends Component{
         </form>
         <Router>
           <Route path="/" exact render={(props) => <UserCardList{...props} users={ users }/>} />
+          <Route path="/users/:username?" component={SingleUser} />
+          <Route path="/users/:username?/repos" component={RepoData} />
         </Router>
       </div>
     );

@@ -7,7 +7,7 @@ const UserCardList = props => {
     return(
         <ul>
             {users.length > 0 ? ( users.map(user => (
-                <li key={user.id}> 
+                <li> 
                     <UserCard users={user} />
                 </li>
                 ))
